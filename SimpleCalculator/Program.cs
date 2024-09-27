@@ -10,6 +10,7 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
+            while (true)
 
             Console.WriteLine("Simple calculator");
             Console.WriteLine("Enter operator (+, -, *, /): ");
