@@ -11,28 +11,16 @@ namespace SimpleCalculator
         static void Main(string[] args)
         {
             while (true)
+            {
+                InputMethods inputMethods = new InputMethods();
 
                 Console.WriteLine("Simple calculator");
                 Console.WriteLine("-----------------");
 
-            double result = 0;
-            switch(operation)
-            {
-                case '+':
-                    result = num1 + num2;
+                string userInput = inputMethods.ValidOperator();
+
+                if (userInput.ToLower() == "exit")//Breaks the while-loop which allows user to exit the program
                     break;
-                case '-':
-                    result = num1 - num2;
-                    break;
-                case '*':
-                    result = num1 * num2;
-                    break;
-                case '/':
-                    result = num1 / num2;
-                    break;
-                default:
-                    Console.WriteLine("Invalid operation.");
-                    return;
 
             }
             Console.ReadKey();
