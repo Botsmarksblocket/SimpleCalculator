@@ -25,26 +25,42 @@ namespace SimpleCalculator
                 double secondNumber = InputMethods.ValidNumber("Enter the second number: ");
 
                 double result = 0;
+                bool validOperation = true;
+
+                switch (chosenOperator)
                 {
                     case "+":
-                        result = num1 + num2;
+                        result = firstNumber + secondNumber;
                         break;
                     case "-":
-                        result = num1 - num2;
+                        result = firstNumber - secondNumber;
                         break;
                     case "*":
-                        result = num1 * num2;
+                        result = firstNumber * secondNumber;
                         break;
                     case "/":
-                        result = num1 / num2;
+                        if (secondNumber == 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("You can't divide by 0, please try again.\n");
+                            validOperation = false;
+                        }
+                        else
+                        {
+                            result = firstNumber / secondNumber;
+                        }
                         break;
                     default:
                         Console.WriteLine("Invalid operation.");
                         return;
                 }
-                Console.WriteLine($"Result: {result}");
-                inputMethods.ContinuePrompt();
-                Console.Clear();
+
+                if (validOperation)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Result: {firstNumber} {chosenOperator} {secondNumber} = {result}.");
+                }
+
                 Console.WriteLine("Do you want to perform another calculation?");
                 continueLoop = inputMethods.Continue("Enter 'yes' to continue or 'no' to exit the program.");
             }
