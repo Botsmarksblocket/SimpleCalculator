@@ -20,15 +20,7 @@ namespace SimpleCalculator
                 Console.WriteLine("Simple calculator");
                 Console.WriteLine("-----------------");
 
-                string userInput = inputMethods.ValidOperator();
-
-                if (userInput.ToLower() == "exit")//Breaks the while-loop which allows user to exit the program
-                    break;
-
-                Console.WriteLine("\nEnter the first number: ");
-                double num1 = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Enter the second number: ");
-                double num2 = Convert.ToDouble(Console.ReadLine());
+                string chosenOperator = InputMethods.ValidOperator("Enter operator (+, -, *, /): ");
 
                 double result = 0;
                 switch (userInput)

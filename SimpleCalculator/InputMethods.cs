@@ -27,14 +27,20 @@ namespace SimpleCalculator
                 Console.WriteLine("Invalid input, please try again.");
             }
         }
-        public string ValidOperator()
+
+        public static string ValidOperator(string prompt) //Checks for valid operator input
         {
             while (true)
             {
-                Console.WriteLine("Enter operator (+, -, *, /) or type 'exit' to quit: ");
-                string checkOperator = Console.ReadLine();
+                Console.WriteLine(prompt);
+                string userInput = Console.ReadLine();
 
-                if (checkOperator.Length != 1 || "+-*/".IndexOf(checkOperator) == -1)
+                if (userInput.Length == 1 && "+-*/".Contains(userInput))
+                {
+                    return userInput;
+                }
+
+                else
                 {
                     Console.Clear();
                     Console.WriteLine("Invalid operator, please try again.");
