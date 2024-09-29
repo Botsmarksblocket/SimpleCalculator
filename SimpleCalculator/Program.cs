@@ -21,9 +21,10 @@ namespace SimpleCalculator
                 Console.WriteLine("-----------------");
 
                 string chosenOperator = InputMethods.ValidOperator("Enter operator (+, -, *, /): ");
+                double firstNumber = InputMethods.ValidNumber("Enter the first number: ");
+                double secondNumber = InputMethods.ValidNumber("Enter the second number: ");
 
                 double result = 0;
-                switch (userInput)
                 {
                     case "+":
                         result = num1 + num2;

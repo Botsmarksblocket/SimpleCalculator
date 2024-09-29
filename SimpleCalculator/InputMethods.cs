@@ -45,9 +45,27 @@ namespace SimpleCalculator
                     Console.Clear();
                     Console.WriteLine("Invalid operator, please try again.");
                 }
+            }
+        }
+
+        public static double ValidNumber(string prompt) //Checks for valid number input
+        {
+            double number;
+
+            while (true)
+            {
+                Console.WriteLine(prompt);
+                string userInput = Console.ReadLine();
+
+                if(double.TryParse(userInput, out number))
+                {
+                    return number;
+                }
+
                 else
                 {
-                    return checkOperator;
+                    Console.Clear();
+                    Console.WriteLine("Invalid number, please try again.");
                 }
             }
         }
