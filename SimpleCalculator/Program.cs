@@ -10,8 +10,11 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            while (true)
+            bool continueLoop = true;
+
+            while (continueLoop)
             {
+                Console.Clear();
                 InputMethods inputMethods = new InputMethods();
 
                 Console.WriteLine("Simple calculator");
@@ -49,7 +52,10 @@ namespace SimpleCalculator
                 Console.WriteLine($"Result: {result}");
                 inputMethods.ContinuePrompt();
                 Console.Clear();
+                Console.WriteLine("Do you want to perform another calculation?");
+                continueLoop = inputMethods.Continue("Enter 'yes' to continue or 'no' to exit the program.");
             }
+            Console.Clear();
             Console.WriteLine("You have exited the program!");
         }
     }

@@ -8,10 +8,24 @@ namespace SimpleCalculator
 {
     public class InputMethods
     {
-        public void ContinuePrompt()
+        public bool Continue(string prompt) //Asks the user if they want to continue or exit the program
         {
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
+            while(true)
+            {
+                Console.WriteLine(prompt);
+                string userInput = Console.ReadLine().ToLower();
+
+                if(userInput == "yes")
+                {
+                    return true;
+                }
+                else if (userInput == "no")
+                {
+                    return false;
+                }
+                Console.Clear();
+                Console.WriteLine("Invalid input, please try again.");
+            }
         }
         public string ValidOperator()
         {
